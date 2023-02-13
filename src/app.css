@@ -1,0 +1,39 @@
+body {
+  text-align: center;
+}
+
+.items {
+  max-width: 500px;
+  margin: auto;
+}
+
+.item  {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5em;
+  width: max-content;
+  justify-content: center;
+}
+
+.item  label {
+  width: max-content;
+  
+}
+
+.it {
+  gap: 2em;
+  margin-bottom: 1em;
+
+}
+
+.it >*:first-child {
+  margin-left: 9.3ch;
+  margin-bottom: .5em;
+}
+.it + * {
+margin-bottom: 1em;
+}
+
+button + button{
+margin-left: 1em;
+}
