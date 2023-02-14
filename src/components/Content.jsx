@@ -16,11 +16,11 @@ const dump_data = [
 const addRandomData = () => {
   const heartRate = Math.floor(Math.random() * (120 - 70 + 1) + 70);
   const temperature = Math.max(
-    Math.floor(Math.random() * (40 - 30 + 1) + 30) + Math.random(),
-    Math.floor(Math.random() * (40 - 30 + 1) + 30) + Math.random(),
-    Math.floor(Math.random() * (40 - 30 + 1) + 30) + Math.random()
+    37 + Math.random(),
+    37 + Math.random(),
+    37 + Math.random()
   );
-  const spo2 = Math.floor(Math.random() * (100 - 90 + 1) + 90);
+  const spo2 = Math.floor(Math.random() * 5 + 95);
 
   dump_data.push({ heartRate, temperature, spo2 });
 };
