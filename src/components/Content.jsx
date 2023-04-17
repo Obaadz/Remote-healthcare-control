@@ -154,6 +154,18 @@ const Content = () => {
       >
         Stop
       </button>
+      <button
+        onClick={() => {
+          axios.put(LINK, {
+            deviceId: "123456789011",
+            dataToUpdate: {
+              fall: true,
+            },
+          });
+        }}
+      >
+        Send Fall
+      </button>
     </div>
   );
 };
