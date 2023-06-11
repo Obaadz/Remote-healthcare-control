@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useRef } from "react";
 import { useEffect } from "react";
+import GPS from "./GPS";
 
 const LINK = "https://remote-healthcare-server.vercel.app/v2/devices/update";
 
@@ -133,7 +134,7 @@ const Content = () => {
             console.log(selectedResult);
             Interval = setInterval(() => {
               axios.put(LINK, {
-                deviceId: myRef.current.textContent,
+                deviceId: myRef.current.value,
                 dataToUpdate: selectedResult[i++],
               });
 
@@ -153,9 +154,10 @@ const Content = () => {
         Stop
       </button>
       <button
-        onClick={() => {
-          axios.put(LINK, {
-            deviceId: myRef.current.textContent,
+        onClick={async () => {
+          console.log(myRef.current.value);
+          await axios.put(LINK, {
+            deviceId: myRef.current.value,
             dataToUpdate: {
               fall: true,
             },
@@ -164,6 +166,7 @@ const Content = () => {
       >
         Send Fall
       </button>
+      <GPS />
     </div>
   );
 };
