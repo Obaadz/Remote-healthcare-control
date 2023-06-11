@@ -48,4 +48,13 @@ margin-left: 1em;
 
 button {
   padding: .5rem;
+  cursor: pointer;
+}
+
+button:hover,button:focus {
+  background-color: #787878;
+}
+
+.heartrate-form {
+  margin-top: 1.5rem;
 }
