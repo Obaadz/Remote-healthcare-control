@@ -3,6 +3,8 @@ import axios from "axios";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
 import GPS from "./GPS";
+import HeartRate from "./HeartRate";
+import CloseDevice from "./CloseDevice";
 
 export const LINK = "https://remote-healthcare-server.vercel.app/v2/devices/update";
 
@@ -92,7 +94,7 @@ const Content = () => {
             id="deviceId"
             ref={myRef}
             placeholder="deviceId"
-            value="123456789011"
+            defaultValue="123456789011"
             onChange={(e) => {
               setDeviceId(e.target.value);
             }}
@@ -177,6 +179,8 @@ const Content = () => {
         Send Fall for deviceId: {deviceId}
       </button>
       <GPS deviceId={deviceId} />
+      <HeartRate deviceId={deviceId} />
+      <CloseDevice deviceId={deviceId} />
     </div>
   );
 };

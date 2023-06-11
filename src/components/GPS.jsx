@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import axios from "axios";
 import { LINK } from "./Content";
+
 const GPS = ({ deviceId }) => {
   const latRef = useRef();
   const lngRef = useRef();
