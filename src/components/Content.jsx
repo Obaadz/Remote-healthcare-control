@@ -45,8 +45,6 @@ const splitData = (data, n) => {
 
 const splitDumpResult = splitData(dump_data, 3);
 
-console.log(splitDumpResult["lowValues"]);
-
 const Content = () => {
   const myRef = useRef();
   const myIntervalTime = useRef();
@@ -135,7 +133,7 @@ const Content = () => {
             console.log(selectedResult);
             Interval = setInterval(() => {
               axios.put(LINK, {
-                deviceId: "123456789011",
+                deviceId: myRef.current.textContent,
                 dataToUpdate: selectedResult[i++],
               });
 
@@ -157,7 +155,7 @@ const Content = () => {
       <button
         onClick={() => {
           axios.put(LINK, {
-            deviceId: "123456789011",
+            deviceId: myRef.current.textContent,
             dataToUpdate: {
               fall: true,
             },
