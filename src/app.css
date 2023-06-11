@@ -41,3 +41,7 @@ margin-left: 1em;
 .gps {
   margin-top: 1rem;
 }
+
+.gps-form {
+  display: grid;
+}

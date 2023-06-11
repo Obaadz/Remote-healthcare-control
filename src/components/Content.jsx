@@ -1,10 +1,10 @@
 import React from "react";
 import axios from "axios";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
 import GPS from "./GPS";
 
-const LINK = "https://remote-healthcare-server.vercel.app/v2/devices/update";
+export const LINK = "https://remote-healthcare-server.vercel.app/v2/devices/update";
 
 const dump_data = [
   {
@@ -47,6 +47,7 @@ const splitData = (data, n) => {
 const splitDumpResult = splitData(dump_data, 3);
 
 const Content = () => {
+  const [deviceId, setDeviceId] = useState("123456789011");
   const myRef = useRef();
   const myIntervalTime = useRef();
   const myValues = useRef();
@@ -86,8 +87,19 @@ const Content = () => {
       <div className="it">
         <div className="item">
           <label htmlFor="deviceId">Device Id: </label>
-          <input type="text" id="deviceId" ref={myRef} placeholder="deviceId" />
+          <input
+            type="text"
+            id="deviceId"
+            ref={myRef}
+            placeholder="deviceId"
+            value="123456789011"
+            onChange={(e) => {
+              setDeviceId(e.target.value);
+            }}
+          />
         </div>
+        {/* <hr />
+        <h3>dump data</h3>
         <div className="item">
           <label htmlFor="intervalTime">Repeat Request Time: </label>
           <input
@@ -96,23 +108,20 @@ const Content = () => {
             ref={myIntervalTime}
             placeholder="interval time"
           />
-        </div>
+        </div> */}
       </div>
 
       <form ref={myValues}>
-        <input type="radio" id="age1" name="how" value="lower" />
+        {/* <input type="radio" id="age1" name="how" value="lower" />
         <label htmlFor="age1">lower</label>
         <br />
         <input type="radio" id="age2" name="how" value="middle" />
         <label htmlFor="age2">middle</label>
         <br />
         <input type="radio" id="age3" name="how" value="higher" />
-        <label htmlFor="age3">higher</label>
-        <br />
-        <input type="radio" id="age4" name="how" value="Sorted" />
-        <label htmlFor="age4">Sorted</label>
+        <label htmlFor="age3">higher</label> */}
       </form>
-      <button
+      {/* <button
         onClick={() => {
           if (typeof Interval === "number") clearInterval(Interval);
 
@@ -152,7 +161,8 @@ const Content = () => {
         }}
       >
         Stop
-      </button>
+      </button> */}
+      <hr />
       <button
         onClick={async () => {
           console.log(myRef.current.value);
@@ -164,9 +174,9 @@ const Content = () => {
           });
         }}
       >
-        Send Fall
+        Send Fall for deviceId: {deviceId}
       </button>
-      <GPS />
+      <GPS deviceId={deviceId} />
     </div>
   );
 };
