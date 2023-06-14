@@ -34,8 +34,10 @@ const HeartRate = ({ deviceId }) => {
   async function updateHeartRate() {
     await axios.put(LINK, {
       deviceId,
+      heartRateForceChange: true,
+      newHeartRate: Number(heartRateRef.current.value) || 100,
       dataToUpdate: {
-        heartRate: Number(heartRateRef.current.value),
+        heartRate: Number(heartRateRef.current.value) || 100,
         heartRateValid: 1,
         SPO2Valid: 1,
       },
