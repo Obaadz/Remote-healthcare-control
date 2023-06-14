@@ -55,6 +55,7 @@ const HeartRate = ({ deviceId }) => {
       <hr />
       <h3>Handling Status: {isEnableHandling ? "Enabled" : "Disabled"}</h3>
       <button onClick={switchHandling}>Switch handling status</button>
+      <hr />
       <form className="heartrate-form">
         <div>
           <label htmlFor="heartRate">HeartRate </label>
